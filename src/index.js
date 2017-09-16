@@ -1,4 +1,4 @@
-﻿import {version} from '../package.json'
+﻿import { version } from '../package.json'
 
 class Cicada {
     static _version // stage-2

@@ -25,7 +25,7 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loaders: ['babel-loader'],
+                loaders: ['babel-loader', 'eslint-loader']
                 // exclude: /node_modules/ // can't enable, otherwise don't take effect
               }
         ]

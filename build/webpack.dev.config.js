@@ -1,4 +1,7 @@
+// import path from'path'
+// import webpack from 'webpack' // don't take effect:SyntaxError: Unexpected token import
 const path = require('path')
+const webpack = require('webpack')
 
 // Helpers
 const resolve = file => path.resolve(__dirname, file)
@@ -17,5 +20,17 @@ module.exports = {
         alias: {
             cicada: resolve('../src')
         }
-    }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loaders: ['babel-loader'],
+                // exclude: /node_modules/ // can't enable, otherwise don't take effect
+              }
+        ]
+    },
+    plugins: [
+        
+    ]
 }

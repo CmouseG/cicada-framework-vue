@@ -1,11 +1,12 @@
 ﻿import {version} from '../package.json'
 
 class Cicada {
+    static _version // stage-2
     constructor() {
-        this._version = version
+        Cicada._version = version
     }
     get version() {
-        return this._version
+        return Cicada._version
     }
 }
 

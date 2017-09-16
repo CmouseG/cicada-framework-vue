@@ -12,5 +12,10 @@ module.exports = {
     },
     devServer: {
         contentBase: resolve('../dev'), // Tell the server where to serve content from
+    },
+    resolve: {
+        alias: {
+            cicada: resolve('../src')
+        }
     }
 }

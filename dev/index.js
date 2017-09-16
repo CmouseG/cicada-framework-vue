@@ -1,2 +1,4 @@
-import path from 'path'
-console.log(path)
+import Cicada from 'cicada'
+
+let cicada = new Cicada();
+console.log(cicada.version)

@@ -21,6 +21,7 @@ module.exports = {
         contentBase: resolve('../dev'), // Tell the server where to serve content from
     },
     resolve: {
+        extensions: ['*', '.js', '.json', '.vue'],
         alias: {
             cicada: resolve('../src')
         }

@@ -19,8 +19,8 @@ export default {
 
 <style lang="stylus">
     .title
-       background #333
-       color #fff
-       display flex
+        background #333
+        color #f3f
+        display flex
 </style>
 

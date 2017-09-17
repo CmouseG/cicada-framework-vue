@@ -1,10 +1,12 @@
-<template>
-    <c-app class="title"></c-app>
-</template>
-
 <script>
 export default {
-
+    render () {
+        return (
+            <div class='title'>
+                <c-app></c-app>
+            </div>
+        )
+    }
 }
 </script>
 

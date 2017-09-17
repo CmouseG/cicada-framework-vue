@@ -3,11 +3,11 @@
 export default class Cicada {
     static version
     constructor() {
-        Cicada.version = version
+    Cicada.version = version
 
         this._initialize()
     }
-    _initialize() {
+    _initialize  () {
 
     }
 }

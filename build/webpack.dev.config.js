@@ -2,9 +2,13 @@
 // import webpack from 'webpack' // don't take effect:SyntaxError: Unexpected token import
 const path = require('path')
 const webpack = require('webpack')
+const extractTextPlugin = require('extract-text-webpack-plugin')
 
 // Helpers
 const resolve = file => path.resolve(__dirname, file)
+const extractPlugin = extractTextPlugin.extract({
+    use: ['css-loader', 'postcss-loader', 'stylus-loader']
+})
 
 module.exports = {
     entry: ['./dev/index.js'],
@@ -30,11 +34,21 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loaders: [{
+                    loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            stylus: extractPlugin
+                        }
+                    }
+                }, 'eslint-loader']
+                // exclude: /node_modules/
             }
         ]
     },
     plugins: [
-        
+        new extractTextPlugin({
+            filename: '[name].css'
+        })
     ]
 }

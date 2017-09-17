@@ -1,5 +1,9 @@
 module.exports = {
     root: true,
+    extends: 'vue',
+    plugins: [
+        'vue'
+    ],
     parser: 'babel-eslint',
     // add your custom rules here
     'rules': {

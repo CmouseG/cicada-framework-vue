@@ -1,11 +1,26 @@
 <template>
-    <div class="title">Hello Vue</div>
+    <div class="title" @click="clickMe()">Message: {{msg}}</div>
 </template>
 
-<style>
-    .title {
-        background: #333;
-        color: #fff
+<script>
+export default {
+    data: function () {
+        return {
+            msg: 'Hello hh Vue.js'
+        }
+    },
+    methods: {
+        clickMe: function () {
+            console.log(333)
+        }
     }
+}
+</script>
+
+<style lang="stylus">
+    .title
+       background #333
+       color #fff
+       display flex
 </style>
 

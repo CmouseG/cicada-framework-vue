@@ -1,4 +1,6 @@
-﻿import { devDependencies, version } from '../package.json'
+﻿require('./stylus/main.styl')
+
+import { devDependencies, version } from '../package.json'
 
 export default class Cicada {
     static version

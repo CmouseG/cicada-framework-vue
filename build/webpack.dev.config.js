@@ -43,6 +43,10 @@ module.exports = {
                     }
                 }, 'eslint-loader']
                 // exclude: /node_modules/
+            },
+            {
+                test: /\.styl$/,
+                loaders: extractPlugin
             }
         ]
     },

@@ -1,15 +1,13 @@
 ﻿require('./stylus/main.styl')
 
-import { devDependencies, version } from '../package.json'
+import { version } from '../package.json'
+import C from './cicada'
+import * as components from './components'
 
-export default class Cicada {
-    static version
-    constructor() {
-    Cicada.version = version
-
-        this._initialize()
-    }
-    _initialize  () {
-
-    }
+export default function Cicada (Vue) {
+    Vue.use(C, {
+        components
+    })
 }
+
+Cicada.version = version

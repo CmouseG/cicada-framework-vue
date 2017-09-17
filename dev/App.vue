@@ -1,19 +1,10 @@
 <template>
-    <div class="title" @click="clickMe()">Message: {{msg}}</div>
+    <c-app class="title"></c-app>
 </template>
 
 <script>
 export default {
-    data: function () {
-        return {
-            msg: 'Hello hh Vue.js'
-        }
-    },
-    methods: {
-        clickMe: function () {
-            console.log(333)
-        }
-    }
+
 }
 </script>
 

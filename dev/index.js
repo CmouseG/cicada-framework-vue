@@ -1,4 +1,6 @@
+import Vue from 'vue'
 import Cicada from 'cicada'
+import App from './APP.vue'
 
-let cicada = new Cicada();
-console.log(cicada.version)
+Vue.use(new Cicada)
+new Vue(App).$mount('#app')

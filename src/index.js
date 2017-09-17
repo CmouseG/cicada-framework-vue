@@ -1,13 +1,13 @@
-﻿import { version } from '../package.json'
+﻿import { devDependencies, version } from '../package.json'
 
-class Cicada {
-    static _version // stage-2
+export default class Cicada {
+    static version
     constructor() {
-        Cicada._version = version
+        Cicada.version = version
+
+        this._initialize()
     }
-    get version() {
-        return Cicada._version
+    _initialize() {
+
     }
 }
-
-export default Cicada

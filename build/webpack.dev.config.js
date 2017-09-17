@@ -25,9 +25,13 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loaders: ['babel-loader', 'eslint-loader']
+                loaders: ['babel-loader']
                 // exclude: /node_modules/ // can't enable, otherwise don't take effect
-              }
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            }
         ]
     },
     plugins: [

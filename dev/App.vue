@@ -2,10 +2,15 @@
 export default {
     render () {
         return (
-            <div class='title'>
+            <div class='title' onClick={this.clickHandler}>
                 <c-app></c-app>
             </div>
         )
+    },
+    methods: {
+        clickHandler (e) {
+            console.log(e)
+        }
     }
 }
 </script>

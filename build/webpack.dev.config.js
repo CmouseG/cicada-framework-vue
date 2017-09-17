@@ -1,17 +1,17 @@
 // import path from'path'
 // import webpack from 'webpack' // don't take effect:SyntaxError: Unexpected token import
 const path = require('path')
-const webpack = require('webpack')
-const extractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 // Helpers
 const resolve = file => path.resolve(__dirname, file)
-const extractPlugin = extractTextPlugin.extract({
-    use: ['css-loader', 'postcss-loader', 'stylus-loader']
+const extractPlugin = ExtractTextPlugin.extract({
+use: ['css-loader', { loader: 'postcss-loader', options: { sourceMap: true } }, 'stylus-loader']
 })
 
 module.exports = {
     entry: ['./dev/index.js'],
+    devtool: '#cheap-module-eval-source-map',
     output: {
         filename: '[name].js', // if set main.js otherwise bundle.js 
         // path: resolve('../dev'), // The output directory as an absolute path
@@ -52,7 +52,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new extractTextPlugin({
+        new ExtractTextPlugin({
             filename: '[name].css'
         })
     ]

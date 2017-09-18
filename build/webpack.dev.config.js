@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 // Helpers
 const resolve = file => path.resolve(__dirname, file)
 const extractPlugin = ExtractTextPlugin.extract({
-use: ['css-loader', { loader: 'postcss-loader', options: { sourceMap: true } }, 'stylus-loader']
+    use: ['css-loader', { loader: 'postcss-loader', options: { sourceMap: true } }, 'stylus-loader']
 })
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
         publicPath: '/dev/' // The bundled files will be available in the browser under this path.By default the publicPath is "/"
     },
     devServer: {
-        contentBase: resolve('../dev'), // Tell the server where to serve content from
+        contentBase: resolve('../dev') // Tell the server where to serve content from
     },
     resolve: {
         extensions: ['*', '.js', '.json', '.vue'],

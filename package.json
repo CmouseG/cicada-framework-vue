@@ -4,7 +4,9 @@
   "description": "cicada framework vue",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.dev.config.js --open --hot"
+    "dev": "webpack-dev-server --config build/webpack.dev.config.js --open --hot",
+    "docs": "cd docs && gitbook serve",
+    "docs:deploy": "deploy-docs.bat"
   },
   "author": "",
   "license": "ISC",

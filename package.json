@@ -4,7 +4,7 @@
   "description": "cicada framework vue",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.dev.config.js --open --hot",
+    "dev": "set port=9090 && webpack-dev-server --config build/webpack.dev.config.js --open --hot",
     "docs": "cd docs && gitbook serve",
     "docs:deploy": "deploy-docs.bat"
   },
@@ -20,6 +20,7 @@
     "babel-plugin-transform-vue-jsx": "^3.5.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "cicada-extras": "^1.0.2",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "eslint": "^4.7.0",
@@ -27,15 +28,18 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-vue": "^2.1.0",
     "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.5",
     "postcss": "^6.0.11",
     "postcss-loader": "^2.0.6",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
+    "url-loader": "^0.6.2",
     "vue": "^2.4.4",
     "vue-loader": "^13.0.4",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "webpack-dev-server": "^2.8.2",
+    "webpack-merge": "^4.1.0"
   },
   "engines": {
     "node": ">= 6.3.0",

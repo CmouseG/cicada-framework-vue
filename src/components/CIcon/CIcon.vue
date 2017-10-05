@@ -17,6 +17,8 @@ export default {
 
         if (!icon) {
             name = ''
+        } else if (icon.startsWith('mdi-')) {
+            name = `mdi ${icon}`
         } else {
             name = 'material-icons'
             text = icon.replace(/ /g, '_')

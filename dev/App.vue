@@ -8,7 +8,7 @@ export default {
         return (
             <c-app>
                 <c-header fixed>
-                    <c-button slot='left' icon='alarm' label='Block'></c-button>
+                    <c-button slot='left' icon='mdi-arrow-left' label='Block'></c-button>
                     <span>Home</span>
                     <c-button slot='right'></c-button>
                 </c-header>

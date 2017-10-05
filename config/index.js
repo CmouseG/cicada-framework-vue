@@ -4,7 +4,9 @@ module.exports = {
         port: process.env.PORT
             ? process.env.PORT
             : '8080',
-        assetsPublicPath: '/dev/',
-        assetsSubDirectory: 'static'
+        // assetsPublicPath: '/dev/',
+        assetsPublicPath: '/',
+        assetsSubDirectory: 'static',
+        cssSourceMap: false
     }
 }

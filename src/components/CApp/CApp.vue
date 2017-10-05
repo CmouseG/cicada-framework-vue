@@ -1,9 +1,14 @@
-<template>
-    <header>Header</header>
-</template>
-
 <script>
 export default {
-    name: 'c-app'
+    name: 'c-app',
+    render () {
+        console.log(this)
+        const children = this.$slots.default
+        return (
+            <div class='c-app'>
+                { children }
+            </div>
+        )
+    }
 }
 </script>

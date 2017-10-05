@@ -1,0 +1,58 @@
+.row, .column, .flex
+    display flex
+    flex-wrap wrap
+    &.inline
+        display inline-flex
+
+.column
+    flex-direction column
+
+.col
+    flex-basis 0
+    flex-grow 1
+    min-height 1px
+
+.row
+    > .col
+        max-width 100%
+        width 100%
+
+for $name, $size in $sizes
+    .row > .col-{$name}
+        width 100%
+    .col-{$name}
+        min-height 1px
+    for $i in (1..$flex-cols)
+        .row > .col-{$name}-{$i}
+            width 100%
+        .col-{$name}-{$i}
+            min-height 1px
+
+for $i in (1..$flex-cols)
+    .col-{$i}
+        flex 0 0 (round($i / $flex-cols * 100, 4))%
+    .row > .col-{$i}
+        max-width (round($i / $flex-cols * 100, 4))%
+    .offset-{$i}
+        margin-left (round($i / $flex-cols * 100, 4))%
+
+for $name, $size in $sizes
+    @media (min-width $size)
+        .col-{$name}
+            max-width 100%
+            flex-basis 0
+            flex-flow 1
+        .col-{$name}-auto
+            width auto
+            flex 0 0 auto
+        
+        for $i in (1..$flex-cols)
+            .col-{$name}-{$i}
+                flex 0 0 (round($i / $flex-cols * 100, 4))%
+            .row > .col-{$name}-$i
+                max-width (round($i / $flex-cols * 100, 4))%
+            .offset-{$name}-{$i}
+                margin-left (round($i / $flex-cols * 100, 4))%
+
+.body
+    background-color yellow

@@ -1,6 +1,7 @@
 // import path from'path'
 // import webpack from 'webpack' // don't take effect:SyntaxError: Unexpected token import
 const path = require('path')
+const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 // Helpers
@@ -23,7 +24,8 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.json', '.vue'],
         alias: {
-            cicada: resolve('../src')
+            cicada: resolve('../src'),
+            'vue$': 'vue/dist/vue.esm.js'
         }
     },
     module: {
@@ -52,6 +54,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': '"development"'
+        }),
         new ExtractTextPlugin({
             filename: '[name].css'
         })

@@ -1,16 +1,25 @@
 <script>
 export default {
+    data: () => ({
+        test: 1
+    }),
     render () {
+        console.log(this)
         return (
-            <div class='title' onClick={this.clickHandler}>
-                <c-app></c-app>
-            </div>
+            <c-app>
+                <c-header fixed>
+                    <c-button slot='left' icon='alarm' label='Block'></c-button>
+                    <span>Home</span>
+                    <c-button slot='right'></c-button>
+                </c-header>
+                <c-footer></c-footer>
+            </c-app>
         )
     },
     methods: {
         clickHandler (e) {
             console.log(e)
-            console.log('33')
+            console.log(this.test++)
         }
     }
 }

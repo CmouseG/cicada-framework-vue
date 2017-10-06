@@ -8,8 +8,9 @@ export default {
         console.log(this)
         return (
             <button
-                class='c-button'>
-                <span>
+                staticClass='c-button'
+                class={ this.classes }>
+                <span class='row flex-center'>
                     { this.icon
                         ? <c-icon name={ this.icon }></c-icon>
                         : null

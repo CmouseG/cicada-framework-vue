@@ -7,6 +7,6 @@ module.exports = {
         // assetsPublicPath: '/dev/',
         assetsPublicPath: '/',
         assetsSubDirectory: 'static',
-        cssSourceMap: false
+        cssSourceMap: true
     }
 }

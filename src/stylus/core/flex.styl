@@ -17,6 +17,13 @@
         max-width 100%
         width 100%
 
+.item-
+    &center
+        align-items center
+
+.flex-center
+    @extend .item-center
+
 for $name, $size in $sizes
     .row > .col-{$name}
         width 100%
@@ -53,6 +60,3 @@ for $name, $size in $sizes
                 max-width (round($i / $flex-cols * 100, 4))%
             .offset-{$name}-{$i}
                 margin-left (round($i / $flex-cols * 100, 4))%
-
-.body
-    background-color yellow

@@ -7,12 +7,13 @@ export default {
         console.log(this)
         return (
             <c-app>
-                <c-header fixed>
-                    <c-button slot='left' icon='mdi-arrow-left' label='Block'></c-button>
-                    <span>Home</span>
-                    <c-button slot='right'></c-button>
-                </c-header>
-                <c-footer></c-footer>
+                <c-layout>
+                    <c-toolbar slot='header'>
+                        <c-button flat icon='mdi-chevron-left mdi-24px' label='返回'></c-button>
+                        <c-toolbar-title>Home</c-toolbar-title>
+                        <c-button flat icon='mdi-menu mdi-24px' label='menu'></c-button>
+                    </c-toolbar>
+                </c-layout>
             </c-app>
         )
     },

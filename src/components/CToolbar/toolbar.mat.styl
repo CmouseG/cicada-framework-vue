@@ -1,0 +1,24 @@
+.c-toolbar
+    padding $toolbar-padding
+    min-height $toolbar-min-height
+    overflow hidden
+    width 100%
+    color $toolbar-color
+    background $toolbar-background
+
+    > .c-button
+        margin 0 .2rem
+        padding .2rem
+        &:first-child
+            margin-left 0
+        &:last-child
+            margin-right 0
+
+.c-toolbar-title
+    flex 1
+    min-width 1px
+    max-width 100%
+    font-size $toolbar-title-font-size
+    font-weight $toolbar-title-font-weight
+    padding $toolbar-title-padding
+    text-align center

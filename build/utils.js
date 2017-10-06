@@ -25,11 +25,16 @@ exports.cssLoaders = function (options) {
         var loaders = [cssLoader]
         if (loader) {
             loaders.push({
-                loader: loader + '-loader',
-                options: Object.assign({}, loaderOptions, {
-                    sourceMap: options.sourceMap
+                    loader: 'postcss-loader',
+                    options: {
+                        sourceMap: options.sourceMap
+                    }
+                }, {
+                    loader: loader + '-loader',
+                    options: Object.assign({}, loaderOptions, {
+                        sourceMap: options.sourceMap
+                    })
                 })
-            })
         }
 
         // Extract CSS when that option is specified
@@ -66,6 +71,29 @@ exports.styleLoaders = function (options) {
             test: new RegExp('\\.' + extension + '$'),
             use: loader
         })
+        // if (extension === 'styl' || extension === 'stylus') {
+        //     output.push({
+        //         test: new RegExp('\\.' + extension + '$'),
+        //         use: [
+        //             { loader: 'vue-style-loader'},
+        //             { loader: 'css-loader'},
+        //             {
+        //               loader: 'postcss-loader',
+        //             //   options: {
+        //             //     plugins: () => [require('autoprefixer')(
+        //             //       { browsers: ['iOS >= 7', 'Android >= 4.1', 'last 10 Chrome versions', 'last 10 Firefox versions', 'Safari >= 6', 'ie > 8'] }
+        //             //     )],
+        //             //   },
+        //             },
+        //             'stylus-loader'
+        //         ]
+        //     })
+        // } else {
+        //     output.push({
+        //         test: new RegExp('\\.' + extension + '$'),
+        //         use: loader
+        //     })
+        // }
     }
     return output
 }

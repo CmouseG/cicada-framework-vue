@@ -6,7 +6,6 @@ export default {
         title: String
     },
     render () {
-        console.log(this)
         const leftSlot = this.$slots.left
         const rightSlot = this.$slots.right
         const defaultSlot = this.$slots.default

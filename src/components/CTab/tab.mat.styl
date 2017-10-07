@@ -1,0 +1,22 @@
+.c-tabs
+    flex-direction column
+
+.c-tabs-head
+    min-height $tabs-min-height
+    overflow hidden
+    background $tabs-background
+    font-size $tabs-font-size
+    font-weight $tabs-font-weight
+
+.c-tab
+    cursor pointer
+    transition color .3s, background .3s
+    user-select none
+    padding $tabs-padding
+    min-height $tabs-min-height
+    text-transform $tabs-text-transform
+    color $tabs-color
+
+@media (max-width $breakpoint-md-max)
+    .c-tab
+        flex 1 1 auto

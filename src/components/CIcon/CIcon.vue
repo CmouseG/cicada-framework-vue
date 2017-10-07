@@ -8,13 +8,12 @@ export default {
         size: String
     },
     render (h, ctx) {
-        console.log(ctx)
         let name, text
         const prop = ctx.props
         const data = ctx.data
         const staticClass = data.staticClass
         const icon = prop.name
-
+        console.log(ctx)
         if (!icon) {
             name = ''
         } else if (icon.startsWith('mdi-')) {

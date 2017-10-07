@@ -17,18 +17,43 @@
 
         <footer
             ref="footer"
-            class="c-layout-footer">
+            class="c-layout-footer"
+            :class="computedFooterClass">
             <slot name="footer"></slot>
         </footer>
     </div>
 </template>
 
 <script>
+import extend from '../../utils/extend'
+
 export default {
     name: 'c-layout',
     data () {
-        console.log(this)
         return {}
+    },
+    props: {
+        view: {
+            type: String,
+            default: 'hhh lpr fff',
+            validator: v => /^(h|l)h(h|r) lpr (f|l)f(f|r)$/.test(v.toLowerCase())
+        },
+        footerClass: Object
+    },
+    computed: {
+        fixed () {
+            return {
+                footer: this.view.indexOf('F') > -1
+            }
+        },
+        computedFooterClass () {
+            console.log(this)
+            const classes = { 'fixed-bottom': this.fixed.footer }
+            console.log(classes)
+            return this.footerClass
+                ? extend({}, this.footerClass, classes)
+                : classes
+        }
     }
 }
 </script>

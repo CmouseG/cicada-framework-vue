@@ -21,8 +21,13 @@
     &center
         align-items center
 
+.justify-
+    &center
+        justify-content center
+
 .flex-center
     @extend .item-center
+    @extend .justify-center
 
 for $name, $size in $sizes
     .row > .col-{$name}

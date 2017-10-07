@@ -5,7 +5,6 @@ export default {
     name: 'c-button',
     mixins: [BtnMixin],
     render () {
-        console.log(this)
         return (
             <button
                 staticClass='c-button'

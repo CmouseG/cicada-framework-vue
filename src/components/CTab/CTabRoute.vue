@@ -10,37 +10,44 @@ export default {
     //     CIcon
     // },
     mixins: [CTabMinxin, RouterLinkMixin],
-    methods: {
-        // select () {
-        //     console.log(this)
-        //     this.$emit('click', this.name)
-        //     this.$el.dispatchEvent(routerLinkEvent)
-        //     this.$parent.selectTab(this.name)
-        // },
-        // checkIfSelected () {
-        //     this.$nextTick(() => {
-        //         if (this.$el.classList.contains('router-link-active') || this.$el.classList.contains('router-link-exact-active')) {
-        //             this.$parent.selectTab(this.name)
-        //         }
-        //     })
-        // }
+    watch: {
+        $route () {
+            this.checkIfSelected()
+        }
     },
-    // created () {
-    //     this.checkIfSelected()
-    // },
+    methods: {
+        select () {
+            console.log(this)
+            // this.$emit('click', this.name)
+            // this.$el.dispatchEvent(routerLinkEvent)
+            this.selectTab(this.name)
+        },
+        checkIfSelected () {
+            console.log(this)
+            this.$nextTick(() => {
+                if (this.$el.classList.contains('router-link-active') || this.$el.classList.contains('router-link-exact-active')) {
+                    this.selectTab(this.name)
+                }
+            })
+        }
+    },
+    created () {
+        this.checkIfSelected()
+    },
     render () {
         return (
             <router-link
                 tag='div'
                 staticClass='c-tab flex-center column'
+                class={ this.classes }
                 to={ this.to }
-                /* nativeOnClick={ this.select } */>
+                nativeOnClick={ this.select }>
                 {this.icon
-                    ? <c-icon name={ this.icon }></c-icon>
+                    ? <c-icon name={ this.icon } class='c-tab-icon'></c-icon>
                     : null
                 }
                 {this.label
-                    ? <span>{ this.label }</span>
+                    ? <span class='c-tab-label'>{ this.label }</span>
                     : null
                 }
             </router-link>

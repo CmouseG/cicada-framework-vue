@@ -17,6 +17,14 @@
     text-transform $tabs-text-transform
     color $tabs-color
 
+    &.active
+        .c-tab-icon, .c-tab-label
+            opacity 1
+
+.c-tabs-normal
+    .c-tab-icon, .c-tab-label
+        opacity: $tabs-unselected-opacity
+
 @media (max-width $breakpoint-md-max)
     .c-tab
         flex 1 1 auto

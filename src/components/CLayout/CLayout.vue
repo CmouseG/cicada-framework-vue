@@ -47,9 +47,7 @@ export default {
             }
         },
         computedFooterClass () {
-            console.log(this)
             const classes = { 'fixed-bottom': this.fixed.footer }
-            console.log(classes)
             return this.footerClass
                 ? extend({}, this.footerClass, classes)
                 : classes

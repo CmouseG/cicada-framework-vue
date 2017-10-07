@@ -10,12 +10,31 @@ export default {
     //     CIcon
     // },
     mixins: [CTabMinxin, RouterLinkMixin],
+    methods: {
+        // select () {
+        //     console.log(this)
+        //     this.$emit('click', this.name)
+        //     this.$el.dispatchEvent(routerLinkEvent)
+        //     this.$parent.selectTab(this.name)
+        // },
+        // checkIfSelected () {
+        //     this.$nextTick(() => {
+        //         if (this.$el.classList.contains('router-link-active') || this.$el.classList.contains('router-link-exact-active')) {
+        //             this.$parent.selectTab(this.name)
+        //         }
+        //     })
+        // }
+    },
+    // created () {
+    //     this.checkIfSelected()
+    // },
     render () {
         return (
             <router-link
                 tag='div'
                 staticClass='c-tab flex-center column'
-                to={ this.to }>
+                to={ this.to }
+                /* nativeOnClick={ this.select } */>
                 {this.icon
                     ? <c-icon name={ this.icon }></c-icon>
                     : null

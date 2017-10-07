@@ -1,4 +1,5 @@
 <script>
+import { RouterLinkMixin } from '../../mixins/CRouterLink.mixin'
 import CTabMinxin from '../../mixins/CTab.mixin'
 // import { CIcon } from '../CIcon'
 
@@ -8,11 +9,13 @@ export default {
     // components: {
     //     CIcon
     // },
-    mixins: [CTabMinxin],
+    mixins: [CTabMinxin, RouterLinkMixin],
     render () {
         return (
-            <div
-                staticClass='c-tab flex-center column'>
+            <router-link
+                tag='div'
+                staticClass='c-tab flex-center column'
+                to={ this.to }>
                 {this.icon
                     ? <c-icon name={ this.icon }></c-icon>
                     : null
@@ -21,7 +24,7 @@ export default {
                     ? <span>{ this.label }</span>
                     : null
                 }
-            </div>
+            </router-link>
         )
     }
 }

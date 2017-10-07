@@ -14,9 +14,9 @@ export default {
                     </c-toolbar>
 
                     <c-tabs slot='footer'>
-                        <c-tab-route slot='title' icon='mdi-home mdi-24px' label='home'></c-tab-route>
-                        <c-tab-route slot='title' icon='mdi-blogger mdi-24px' label='blog'></c-tab-route>
-                        <c-tab-route slot='title' icon='mdi-account mdi-24px' label='mine'></c-tab-route>
+                        <c-tab-route slot='title' icon='mdi-home mdi-24px' label='home' to='/layout/home'></c-tab-route>
+                        <c-tab-route slot='title' icon='mdi-blogger mdi-24px' label='blog' to='/layout/blog'></c-tab-route>
+                        <c-tab-route slot='title' icon='mdi-account mdi-24px' label='mine' to='/layout/mine'></c-tab-route>
                     </c-tabs>
                 </c-layout>
             </c-app>

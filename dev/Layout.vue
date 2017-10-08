@@ -1,13 +1,22 @@
 <script>
 export default {
+    methods: {
+        toggleRight () {
+            this.$refs.layout.toggleRight()
+        }
+    },
     render () {
         return (
-            <c-layout view='hHr LpR lFf'>
+            <c-layout ref='layout' view='hHr LpR lFf'>
                 <c-toolbar slot='header'>
                     <c-button flat icon='mdi-chevron-left mdi-24px'></c-button>
                     <c-toolbar-title>Home</c-toolbar-title>
-                    <c-button flat icon='mdi-menu mdi-24px'></c-button>
+                    <c-button flat icon='mdi-menu mdi-24px' nativeOnClick={ this.toggleRight }></c-button>
                 </c-toolbar>
+
+                <div slot='right'>
+                    <h3>Side Right</h3>
+                </div>
 
                 <router-view></router-view>
 

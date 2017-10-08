@@ -17,13 +17,11 @@ export default {
     },
     methods: {
         select () {
-            console.log(this)
             // this.$emit('click', this.name)
             // this.$el.dispatchEvent(routerLinkEvent)
             this.selectTab(this.name)
         },
         checkIfSelected () {
-            console.log(this)
             this.$nextTick(() => {
                 if (this.$el.classList.contains('router-link-active') || this.$el.classList.contains('router-link-exact-active')) {
                     this.selectTab(this.name)

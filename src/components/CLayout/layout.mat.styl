@@ -7,3 +7,20 @@
 
 .c-layout-footer
     box-shadow $layout-footer-shadow
+
+.c-layout-backdrop
+  z-index ($z-fixed-side - 1)
+  background $dimmed-background
+
+.c-layout-aside
+    position absolute
+    top 0
+    bottom 0
+    background $layout-aside-background
+
+    &.on-top
+        z-index $z-fixed-side
+
+.c-layout-aside-right
+    right 0
+    width $layout-aside-right-width

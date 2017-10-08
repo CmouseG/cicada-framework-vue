@@ -54,6 +54,11 @@ import CSideMixin from '../../mixins/CSide.mixin'
 export default {
     name: 'c-layout',
     mixins: [CSideMixin],
+    provide () {
+        return {
+            layout: this
+        }
+    },
     data () {
         return {
             backdrop: {

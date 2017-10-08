@@ -48,6 +48,18 @@ export default {
             // if (typeof fn === 'function') {
             //     setTimeout(fn, 310)
             // }
+        },
+        hideCurrentSide (fn) {
+            if (this.leftState.openedSmall) {
+                this.hideLeft(fn)
+            } else if (this.rightState.openedSmall) {
+                this.hideRight(fn)
+            } else if (typeof fn === 'function') {
+                fn()
+            }
+        },
+        hideRight (fn) {
+            this.__hide('right', fn)
         }
     }
 }

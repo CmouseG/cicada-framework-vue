@@ -15,7 +15,9 @@ export default {
                 </c-toolbar>
 
                 <div slot='right'>
-                    <h3>Side Right</h3>
+                    <c-side-link to='/blog'>
+                        <h3>Side Right Link</h3>
+                    </c-side-link >
                 </div>
 
                 <router-view></router-view>

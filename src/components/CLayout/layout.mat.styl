@@ -17,6 +17,11 @@
     top 0
     bottom 0
     background $layout-aside-background
+    // color #9D9D9D
+    color #fff
+
+.with-layout-side-opened .c-layout-aside
+    box-shadow 0px 10px 50px rgba(0, 0, 0, .6)
 
     &.on-top
         z-index $z-fixed-side
@@ -24,3 +29,16 @@
 .c-layout-aside-right
     right 0
     width $layout-aside-right-width
+
+.c-layout-aside ul li
+    display block
+    height 50px
+    line-height 50px
+    background rgba(0, 0, 0, .2)
+    border-top 3px solid rgba(0, 0, 0, .2)
+    padding-left 20px
+    position relative
+    overflow hidden
+    transition all .2s ease
+    & i
+        margin-right 16px 

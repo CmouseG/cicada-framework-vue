@@ -15,9 +15,18 @@ export default {
                 </c-toolbar>
 
                 <div slot='right'>
-                    <c-side-link to='/blog'>
-                        <h3>Side Right Link</h3>
-                    </c-side-link >
+                    <c-avatar img='/statics/images/avatar.jpg'></c-avatar>
+                    <ul>
+                        <c-side-link tag='li' to='/home'>
+                            <i class='mdi mdi-home mdi-24px'></i>Home
+                        </c-side-link >
+                        <c-side-link tag='li' to='/blog'>
+                            <i class='mdi mdi-blogger mdi-24px'></i>Blog
+                        </c-side-link >
+                        <c-side-link tag='li' to='/mine'>
+                            <i class='mdi mdi-account mdi-24px'></i>Mine
+                        </c-side-link >
+                    </ul>
                 </div>
 
                 <router-view></router-view>

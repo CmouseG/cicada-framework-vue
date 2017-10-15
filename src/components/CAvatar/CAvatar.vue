@@ -7,7 +7,6 @@ export default {
         img: String
     },
     mounted () {
-        console.log(this)
         const BLUR_RADIUS = 40
         const sourceImages = this.$refs.sourceImage.getAttribute('src')
 

@@ -19,11 +19,13 @@
             :style="computedRightStyle"
             v-if="$slots.right">
             <slot name="right"></slot>
+            <c-resize-observable @resize="onRightAsideResize"></c-resize-observable>
         </aside>
 
         <header
             ref="header"
             class="c-layout-header fixed-top"
+            :style="computedRightOnLayoutStyle"
             >
             <slot name="header"></slot>
         </header>
@@ -31,7 +33,7 @@
         <div
             ref="main"
             class="c-layout-page-container"
-            style="position: absolute;top: 50px">
+            :style="computedRightOnLayoutStyle">
             <main class="c-layout-page">
                 <slot></slot>
             </main>
@@ -40,9 +42,12 @@
         <footer
             ref="footer"
             class="c-layout-footer"
-            :class="computedFooterClass">
+            :class="computedFooterClass"
+            :style="computedRightOnLayoutStyle">
             <slot name="footer"></slot>
         </footer>
+
+        <c-window-resize-observable @resize="onWindowResize"></c-window-resize-observable>
     </div>
 </template>
 
@@ -61,6 +66,8 @@ export default {
     },
     data () {
         return {
+            layout: { h: 0, w: 0 },
+            right: { h: 0, w: 0 },
             backdrop: {
                 inTransit: false,
                 touchEvent: false,
@@ -96,6 +103,10 @@ export default {
                     right: true
                 }
             }
+        },
+        rightBreakpoint: {
+            type: Number,
+            default: 992
         }
     },
     computed: {
@@ -104,6 +115,12 @@ export default {
                 footer: this.view.indexOf('F') > -1
             }
         },
+        rightOnLayout () {
+            return this.rightOverBreakpoint && this.rightState.openedBig
+        },
+        rightOverBreakpoint () {
+            return !this.rightState.openedSmall && this.rightBreakPoint !== 0 && this.layout.w >= this.rightBreakpoint
+        },
         computedFooterClass () {
             const classes = { 'fixed-bottom': this.fixed.footer }
             return this.footerClass
@@ -111,19 +128,22 @@ export default {
                 : classes
         },
         computedRightStyle () {
-            const style = this.rightState.inTransit
-                ? cssTransform(`translateX(${this.rightState.position}px)`)
-                : cssTransform(`translateX(${this.rightState.openedSmall ? 0 : '100%'})`)
+            if (!this.rightOnLayout) {
+                const style = this.rightState.inTransit
+                    ? cssTransform(`translateX(${this.rightState.position}px)`)
+                    : cssTransform(`translateX(${this.rightState.openedSmall ? 0 : '100%'})`)
 
-            return this.rightStyle
-                ? extend({}, this.rightStyle, style)
-                : style
+                return this.rightStyle
+                    ? extend({}, this.rightStyle, style)
+                    : style
+            }
         },
         hideBackdrop () {
             return !this.backdrop.inTransit && !this.rightState.openedSmall
         },
         computedRightClass () {
             const classes = {
+                'on-layout': this.rightOnLayout,
                 'fixed': this.fixed.right || !this.rightOnLayout,
                 'on-top': !this.rightOverBreakpoint || this.rightState.inTransit
             }
@@ -131,7 +151,44 @@ export default {
             return this.rightClass
                 ? extend({}, this.rightClass, classes)
                 : classes
+        },
+        computedRightOnLayoutStyle () {
+            const view = this.rows
+            const css = {}
+
+            if (view.top[2] === 'r' && this.rightOnLayout ||
+                view.middle[2] !== 'p' && this.rightOnLayout ||
+                view.bottom[2] === 'r' && this.rightOnLayout) {
+                css.marginRight = this.right.w + 'px'
+            }
+
+            return css
+        },
+        rows () {
+            const rows = this.view.toLowerCase().split(' ')
+            return {
+                top: rows[0].split(''),
+                middle: rows[1].split(''),
+                bottom: rows[2].split('')
+            }
         }
+    },
+    methods: {
+        onWindowResize (size) {
+            updateSize(this.layout, size)
+        },
+        onRightAsideResize (size) {
+            updateSize(this.right, size)
+        }
+    }
+}
+
+function updateSize (obj, size) {
+    if (obj.w !== size.width) {
+        obj.w = size.width
+    }
+    if (obj.h !== size.height) {
+        obj.h = size.height
     }
 }
 </script>

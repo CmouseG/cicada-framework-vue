@@ -3,6 +3,7 @@
     min-height 100vh
 
 .c-layout-header
+    height $layout-header-height
     box-shadow $layout-header-shadow
 
 .c-layout-footer
@@ -19,9 +20,11 @@
     background $layout-aside-background
     // color #9D9D9D
     color #fff
+    &.on-layout
+        box-shadow $layout-aside-shadow
 
-.with-layout-side-opened .c-layout-aside
-    box-shadow 0px 10px 50px rgba(0, 0, 0, .6)
+// .with-layout-side-opened .c-layout-aside
+//     box-shadow 0px 10px 50px rgba(0, 0, 0, .6)
 
     &.on-top
         z-index $z-fixed-side
@@ -41,4 +44,8 @@
     overflow hidden
     transition all .2s ease
     & i
-        margin-right 16px 
+        margin-right 16px
+
+.c-layout-page-container
+    position absolute
+    top $layout-header-height

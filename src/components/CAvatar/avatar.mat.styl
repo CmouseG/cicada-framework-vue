@@ -21,7 +21,9 @@
         position relative
         border-radius 50%
     /.with-layout-side-opened &::before,
-    /.with-layout-side-opened &::after
+    /.with-layout-side-opened &::after,
+    /aside.on-layout &::before,
+    /aside.on-layout &::after
         animation pulse 2s linear infinite;
         border #ffffff solid 4px
         border-radius 50%
@@ -33,7 +35,8 @@
         top -20%
         transform scale(0.714)
         width 140%
-    /.with-layout-side-opened &::after
+    /.with-layout-side-opened &::after,
+    /aside.on-layout &::after
         animation-delay 1.2s
 
 // @keyframes cycle-colors
